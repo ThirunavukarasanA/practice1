@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import "./styles.css";
 
 function Login() {
-    // React States
+    // React Stas
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
 
