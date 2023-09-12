@@ -7,7 +7,14 @@
     gap: 20px;
     height: 100vh;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    background-color: #f8f9fd;
+    /* background-color: #f8f9fd; */
+    /* place-items: center; */
+    background-image: url('../Asset/images/wave-haikei.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: background 10s infinite alternate linear;
+    
 }
 
 input[type="text"],
@@ -36,9 +43,12 @@ input[type="submit"]:hover {
 }
 
 .form {
-    background-color: white;
+    background-color: rgb(255, 255, 255,0.13);
+    backdrop-filter: blur(2px);
+    border: 2px solid rgba(255,255,255,0.1);
     padding: 2rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
 }
 
 .list-container {
@@ -61,3 +71,7 @@ input[type="submit"]:hover {
     gap: 8px;
     margin: 10px;
 }
+
+/*Icons*/
+
+

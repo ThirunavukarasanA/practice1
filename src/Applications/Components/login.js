@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import Icons from "./icon";
+import PopupModal from "./PopupModal";
 
 import "./styles.css";
 
-function Login() {
+function Login(props) {
     // React States
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const[open, setOpen] = useState(false)
 
     // User Login info
     const database = [
@@ -79,7 +82,9 @@ function Login() {
     return (
         <div className="app">
             <div>
-                {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+                {/* {isSubmitted ? <Icons/> : renderForm} */}
+                <button onClick={()=>setOpen(true)}>open</button>
+                <PopupModal modal={open} setModal={setOpen}/>
             </div>
         </div>
     );
