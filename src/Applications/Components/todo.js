@@ -23,13 +23,14 @@ export default function Todo() {
     );
   }
 
-  const edit = (ind) => {
+  const edit = (e) => {
     // console.log(ind);
     todo.map((v, i) => {
-      if (i == ind) {
+      if (i == e) {
         setText(v)
       }
     })
+    // setText(e)
   }
 
   return (
@@ -38,13 +39,12 @@ export default function Todo() {
 
       <button onClick={submit}>Add</button>
 
-      {/* <button onClick={remove}>remove</button> */}
       <div>
         {todo?.map((a, i) => {
           // console.log(i);
           return (
-            <h2 id="hh" style={{ color: "red" }}>{a} <span onClick={() => { removeitem(i) }} style={{ color: "black", cursor: "pointer" }} >*</span>
-              <span onClick={() => { edit(i) }}>edit</span>
+            <h2 id="hh" style={{ color: "green" }}>{a} : <span onClick={() => { removeitem(i) }} style={{ color: "red", cursor: "pointer" }} > "Delete" </span>
+              <span onClick={(e) => {edit(e)}} style={{ color: "blue", cursor: "pointer" }}> "Edit" </span>
             </h2>
           )
         })}

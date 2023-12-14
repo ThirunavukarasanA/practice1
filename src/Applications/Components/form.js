@@ -69,7 +69,6 @@ export default function Broucher(props) {
                 name: values.name,
                 email: values.email,
                 phone: values.phone,
-
             }
             axios.post(`http://localhost:5050/imsr/broucher`, myjson)
                 .then(res => {
