@@ -9,6 +9,7 @@ import Img from "./Applications/Components/img";
 import PopupModal from "./Applications/Components/PopupModal";
 import MmsLoginPage from "./Applications/Components/MmsLoginPage";
 import Shader from "./Applications/Components/Swiper Carosel/Shader";
+import LoginForm from "./Applications/Components/LoginForm";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
       {/* <Img/> */}
       {/* <PopupModal /> */}
       {/* <MmsLoginPage /> */}
-      <Shader />
+      {/* <Shader /> */}
+      <LoginForm />
     </div>
   );
 }
