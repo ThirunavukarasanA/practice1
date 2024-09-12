@@ -10,6 +10,7 @@ import PopupModal from "./Applications/Components/PopupModal";
 import MmsLoginPage from "./Applications/Components/MmsLoginPage";
 import Shader from "./Applications/Components/Swiper Carosel/Shader";
 import LoginForm from "./Applications/Components/LoginForm";
+import ImageResize from "./Applications/Components/ImageResize";
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
       {/* <PopupModal /> */}
       {/* <MmsLoginPage /> */}
       {/* <Shader /> */}
-      <LoginForm />
+      {/* <LoginForm /> */}
+      <ImageResize />
     </div>
   );
 }
