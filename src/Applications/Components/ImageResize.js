@@ -70,7 +70,10 @@ export default function ImageResize() {
       {customerdata.photo && (
         <div>
           <p>Resized Image:</p>
-          <img src={customerdata.photo} alt="Resized"  />
+          <img src={customerdata.photo} alt="Resized" />
+          <a href={customerdata.photo} download>
+            Download
+          </a>
         </div>
       )}
     </div>
