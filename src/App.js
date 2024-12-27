@@ -16,7 +16,7 @@ import HorizontalSlider from "./Applications/Components/HorizontalSlider";
 function App() {
   return (
     <div>
-      <HorizontalSlider />
+      {/* <HorizontalSlider /> */}
       {/* <Login/> */}
       {/* <Menu/><br/><br/> */}
       {/* <Icons/><br/><br/> */}
@@ -27,7 +27,7 @@ function App() {
       {/* <MmsLoginPage /> */}
       {/* <Shader /> */}
       {/* <LoginForm /> */}
-      {/* <ImageResize /> */}
+      <ImageResize />
     </div>
   );
 }

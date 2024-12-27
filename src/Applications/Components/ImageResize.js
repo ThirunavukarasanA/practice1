@@ -3,42 +3,56 @@ import React, { useState, useRef } from "react";
 export default function ImageResize() {
   const [customerdata, setCustomerdata] = useState({ photo: "" });
   const inputRef = useRef(null);
-  const resizeImage = (img, maxSize) => {
-    // Create an offscreen canvas
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
 
-    // Set the dimensions to reduce the image size
-    let width = img.width;
-    let height = img.height;
+  const resizeAndCompressImage = (img, targetSizeKB) => {
+    return new Promise((resolve) => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
 
-    // Calculate the aspect ratio and resize the image to fit within the maxSize limit
-    if (width > height) {
-      if (width > maxSize) {
-        height *= maxSize / width;
-        width = maxSize;
+      let width = img.width;
+      let height = img.height;
+      const maxDimension = 1000; // Maximum width/height in pixels
+
+      // Resize image to fit within the maxDimension
+      if (width > height) {
+        if (width > maxDimension) {
+          height *= maxDimension / width;
+          width = maxDimension;
+        }
+      } else {
+        if (height > maxDimension) {
+          width *= maxDimension / height;
+          height = maxDimension;
+        }
       }
-    } else {
-      if (height > maxSize) {
-        width *= maxSize / height;
-        height = maxSize;
+
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.drawImage(img, 0, 0, width, height);
+
+      const compress = (quality) => {
+        return canvas.toDataURL("image/jpeg", quality);
+      };
+
+      let quality = 0.9; // Initial quality
+      let compressedImage = compress(quality);
+
+      // Iteratively reduce quality to achieve the target size
+      const targetSizeBytes = targetSizeKB * 1024;
+      while (compressedImage.length > targetSizeBytes && quality > 0.1) {
+        quality -= 0.1;
+        compressedImage = compress(quality);
       }
-    }
 
-    // Set the canvas size to the new dimensions
-    canvas.width = width;
-    canvas.height = height;
-
-    // Draw the image to the canvas at the new size
-    ctx.drawImage(img, 0, 0, width, height);
-
-    // Convert the canvas to a base64 string
-    return canvas.toDataURL("image/webp", 0.8); // Adjust quality for JPEG (80% quality)
+      resolve(compressedImage);
+    });
   };
 
   const handleImgChange = (e) => {
     const file = e.target.files[0];
-    const maxSize = 1 * 1024 * 1024; // 1 MB
+    if (!file) return;
+
     const reader = new FileReader();
 
     reader.onload = (event) => {
@@ -46,32 +60,41 @@ export default function ImageResize() {
 
       img.src = event.target.result;
 
-      img.onload = () => {
-        // Resize image if it's larger than 10 MB
-        const resizedImage = resizeImage(img, 1000); // Resize to a maximum width/height of 1000px
+      img.onload = async () => {
+        const compressedImage = await resizeAndCompressImage(img, 100); // Compress to ~100KB
+        const compressedImageSize = (compressedImage.length * (3 / 4)) / 1024; // Size in KB
 
-        const base64Length = resizedImage.length * (3 / 4) - 2; // Base64 size estimation
-        if (base64Length <= maxSize) {
-          console.log("Image is under 10MB after resizing");
-          setCustomerdata((prev) => ({ ...prev, photo: resizedImage }));
+        if (compressedImageSize <= 100) {
+          console.log(
+            `Image compressed successfully to ~${compressedImageSize.toFixed(
+              2
+            )} KB`
+          );
+          setCustomerdata((prev) => ({ ...prev, photo: compressedImage }));
         } else {
-          alert("Image is still larger than 10MB after resizing.");
+          alert("Unable to compress the image to the desired size.");
           inputRef.current.value = null;
           setCustomerdata((prev) => ({ ...prev, photo: "" }));
         }
       };
     };
 
-    reader.readAsDataURL(file); // Convert the file to a base64 string for the <img> tag
+    reader.readAsDataURL(file);
   };
+
   return (
     <div>
-      <input type="file" ref={inputRef} onChange={handleImgChange} />
+      <input
+        type="file"
+        accept="image/*"
+        ref={inputRef}
+        onChange={handleImgChange}
+      />
       {customerdata.photo && (
         <div>
-          <p>Resized Image:</p>
-          <img src={customerdata.photo} alt="Resized" />
-          <a href={customerdata.photo} download>
+          <p>Compressed Image:</p>
+          <img src={customerdata.photo} alt="Compressed" />
+          <a href={customerdata.photo} download="compressed-image.jpg">
             Download
           </a>
         </div>
