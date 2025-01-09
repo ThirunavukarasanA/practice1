@@ -12,6 +12,7 @@ import Shader from "./Applications/Components/Swiper Carosel/Shader";
 import LoginForm from "./Applications/Components/LoginForm";
 import ImageResize from "./Applications/Components/ImageResize";
 import HorizontalSlider from "./Applications/Components/HorizontalSlider";
+import Scroll from "./Applications/Components/scroll";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
       {/* <MmsLoginPage /> */}
       {/* <Shader /> */}
       {/* <LoginForm /> */}
-      <ImageResize />
+      {/* <ImageResize /> */}
+      <Scroll />
     </div>
   );
 }
