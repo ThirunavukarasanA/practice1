@@ -13,6 +13,7 @@ import LoginForm from "./Applications/Components/LoginForm";
 import ImageResize from "./Applications/Components/ImageResize";
 import HorizontalSlider from "./Applications/Components/HorizontalSlider";
 import Scroll from "./Applications/Components/scroll";
+import TextEditor from "./Applications/Components/InputSelect";
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
       {/* <Shader /> */}
       {/* <LoginForm /> */}
       {/* <ImageResize /> */}
-      <Scroll />
+      {/* <Scroll /> */}
+      <TextEditor />
     </div>
   );
 }
