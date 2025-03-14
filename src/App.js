@@ -14,6 +14,8 @@ import ImageResize from "./Applications/Components/ImageResize";
 import HorizontalSlider from "./Applications/Components/HorizontalSlider";
 import Scroll from "./Applications/Components/scroll";
 import TextEditor from "./Applications/Components/InputSelect";
+import GetUserLocation from "./Applications/Components/GetUserLocation";
+import HorizontalScroll from "./Applications/Components/HorizontalScroll";
 
 function App() {
   return (
@@ -31,7 +33,9 @@ function App() {
       {/* <LoginForm /> */}
       {/* <ImageResize /> */}
       {/* <Scroll /> */}
-      <TextEditor />
+      {/* <TextEditor /> */}
+      {/* <GetUserLocation /> */}
+      <HorizontalScroll />
     </div>
   );
 }
