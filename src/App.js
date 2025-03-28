@@ -16,6 +16,7 @@ import Scroll from "./Applications/Components/scroll";
 import TextEditor from "./Applications/Components/InputSelect";
 import GetUserLocation from "./Applications/Components/GetUserLocation";
 import HorizontalScroll from "./Applications/Components/HorizontalScroll";
+import DeviceDector from "./Applications/Components/DeviceDector";
 
 function App() {
   return (
@@ -35,7 +36,8 @@ function App() {
       {/* <Scroll /> */}
       {/* <TextEditor /> */}
       {/* <GetUserLocation /> */}
-      <HorizontalScroll />
+      {/* <HorizontalScroll /> */}
+      <DeviceDector />
     </div>
   );
 }
