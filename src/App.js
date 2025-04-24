@@ -35,9 +35,9 @@ function App() {
       {/* <ImageResize /> */}
       {/* <Scroll /> */}
       {/* <TextEditor /> */}
-      {/* <GetUserLocation /> */}
+      <GetUserLocation />
       {/* <HorizontalScroll /> */}
-      <DeviceDector />
+      {/* <DeviceDector /> */}
     </div>
   );
 }
