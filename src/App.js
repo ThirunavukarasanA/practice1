@@ -17,6 +17,8 @@ import TextEditor from "./Applications/Components/InputSelect";
 import GetUserLocation from "./Applications/Components/GetUserLocation";
 import HorizontalScroll from "./Applications/Components/HorizontalScroll";
 import DeviceDector from "./Applications/Components/DeviceDector";
+import AdmissionDataFilter from "./Applications/Components/AdmissionDataFilter";
+import UploadImage from "./Applications/Components/UploadImage";
 
 function App() {
   return (
@@ -35,7 +37,9 @@ function App() {
       {/* <ImageResize /> */}
       {/* <Scroll /> */}
       {/* <TextEditor /> */}
-      <GetUserLocation />
+      {/* <GetUserLocation /> */}
+      {/* <AdmissionDataFilter /> */}
+      <UploadImage />
       {/* <HorizontalScroll /> */}
       {/* <DeviceDector /> */}
     </div>
