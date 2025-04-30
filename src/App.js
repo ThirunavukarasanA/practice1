@@ -19,6 +19,7 @@ import HorizontalScroll from "./Applications/Components/HorizontalScroll";
 import DeviceDector from "./Applications/Components/DeviceDector";
 import AdmissionDataFilter from "./Applications/Components/AdmissionDataFilter";
 import UploadImage from "./Applications/Components/UploadImage";
+import DatePicker from "./Applications/Components/DatePicker";
 
 function App() {
   return (
@@ -39,7 +40,8 @@ function App() {
       {/* <TextEditor /> */}
       {/* <GetUserLocation /> */}
       {/* <AdmissionDataFilter /> */}
-      <UploadImage />
+      {/* <UploadImage /> */}
+      <DatePicker />
       {/* <HorizontalScroll /> */}
       {/* <DeviceDector /> */}
     </div>
