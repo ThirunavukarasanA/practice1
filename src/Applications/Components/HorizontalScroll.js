@@ -57,7 +57,7 @@ const HorizontalScroll = () => {
             className="w-[80vw] h-[80vh] object-cover rounded-lg shadow-lg"
           />
           <img
-            src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
+            src="https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_1280.jpg"
             alt="Image 3"
             className="w-[80vw] h-[80vh] object-cover rounded-lg shadow-lg"
           />

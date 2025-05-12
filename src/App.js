@@ -20,6 +20,7 @@ import DeviceDector from "./Applications/Components/DeviceDector";
 import AdmissionDataFilter from "./Applications/Components/AdmissionDataFilter";
 import UploadImage from "./Applications/Components/UploadImage";
 import DatePicker from "./Applications/Components/DatePicker";
+import VideoPlayer from "./Applications/Components/VideoPlayer";
 
 function App() {
   return (
@@ -41,8 +42,9 @@ function App() {
       {/* <GetUserLocation /> */}
       {/* <AdmissionDataFilter /> */}
       {/* <UploadImage /> */}
-      <DatePicker />
-      {/* <HorizontalScroll /> */}
+      {/* <DatePicker /> */}
+      {/* <VideoPlayer /> */}
+      <HorizontalScroll />
       {/* <DeviceDector /> */}
     </div>
   );
