@@ -21,6 +21,7 @@ import AdmissionDataFilter from "./Applications/Components/AdmissionDataFilter";
 import UploadImage from "./Applications/Components/UploadImage";
 import DatePicker from "./Applications/Components/DatePicker";
 import VideoPlayer from "./Applications/Components/VideoPlayer";
+import ImageCropUpload from "./Applications/Components/ImageCropUpload";
 
 function App() {
   return (
@@ -44,7 +45,8 @@ function App() {
       {/* <UploadImage /> */}
       {/* <DatePicker /> */}
       {/* <VideoPlayer /> */}
-      <HorizontalScroll />
+      {/* <HorizontalScroll /> */}
+      <ImageCropUpload />
       {/* <DeviceDector /> */}
     </div>
   );
