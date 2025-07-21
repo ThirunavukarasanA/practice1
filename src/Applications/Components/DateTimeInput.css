@@ -1,0 +1,15 @@
+/* Chrome, Safari, Edge */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0;
+}
+
+/* Firefox (optional fallback) */
+input[type="datetime-local"] {
+  background-image: none;
+}

@@ -1,0 +1,28 @@
+.bg{
+    background-image: url('../Asset//images/compliant2.png');
+}
+.bg1{
+    background-image: url('../Asset//images/neon-colorful.jpg');
+}
+.bg2{
+    background-image: url('../Asset/images/sa_pixar.jpeg');
+}
+.bg3{
+    background-image: url('../Asset/images/white\ car.jpg');
+}
+.ko{
+    display: flex;
+    height: 20rem;
+    gap: 1rem;
+}
+.ko > div {
+    flex: 1;
+    border-radius: 1rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    transition: all .8s cubic-bezier(.25, .4, .45, 1.4);
+}
+.ko > div:hover{
+    flex: 2;
+}
