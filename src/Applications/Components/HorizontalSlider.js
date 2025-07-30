@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 
 export default function HorizontalSlider() {
   const slides = [
-    { id: 1, content: "Slide 1 Content" },
-    { id: 2, content: "Slide 2 Content" },
-    { id: 3, content: "Slide 3 Content" },
+    { id: 1, content: "Slide 1 Content", bgColor: "bg-[#7C0201]" },
+    { id: 2, content: "Slide 2 Content", bgColor: "bg-[#1589ee]" },
+    { id: 3, content: "Slide 3 Content", bgColor: "bg-[#1DA1F2]" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,8 +30,8 @@ export default function HorizontalSlider() {
   };
 
   const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1) // Ensure it loops backward
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1 // Ensure it loops backward
     );
   };
 
@@ -44,9 +44,7 @@ export default function HorizontalSlider() {
   const handleMouseMove = (e) => {
     if (!isDragging) return;
     const dragDistance = e.clientX - startX; // Calculate drag distance
-    setTranslate(
-      -currentIndex * 100 + (dragDistance / sliderRef.current.offsetWidth) * 100
-    );
+    setTranslate(-currentIndex * 100 + (dragDistance / sliderRef.current.offsetWidth) * 100);
   };
 
   const handleMouseUp = () => {
@@ -73,7 +71,7 @@ export default function HorizontalSlider() {
 
   return (
     <div
-      className="relative w-full max-w-lg mx-auto overflow-hidden bg-whatsapp"
+      className="relative w-full max-w-lg mx-auto overflow-hidden"
       onMouseEnter={() => setIsPaused(true)} // Pause auto-scroll on hover
       onMouseLeave={handleMouseLeave} // Handle dragging outside slider
       ref={sliderRef}
@@ -82,9 +80,7 @@ export default function HorizontalSlider() {
       <div
         className="flex transition-transform duration-500"
         style={{
-          transform: `translateX(${
-            isDragging ? translate : -currentIndex * 100
-          }%)`,
+          transform: `translateX(${isDragging ? translate : -currentIndex * 100}%)`,
         }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
@@ -93,7 +89,7 @@ export default function HorizontalSlider() {
         {slides.map((slide) => (
           <div
             key={slide.id}
-            className={`w-full h-64 flex-shrink-0 flex items-center justify-center ${slide.bgColor} text-white text-2xl font-bold cursor-grab`}
+            className={`w-full h-64 select-none flex-shrink-0 flex items-center justify-center ${slide.bgColor} text-black text-2xl font-bold cursor-grab`}
           >
             {slide.content}
           </div>
@@ -103,13 +99,13 @@ export default function HorizontalSlider() {
       {/* Controls */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600"
+        className="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full hover:bg-gray-600"
       >
         &#8592;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600"
+        className="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full hover:bg-gray-600"
       >
         &#8594;
       </button>
@@ -120,9 +116,8 @@ export default function HorizontalSlider() {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full ${
-              currentIndex === index ? "bg-white" : "bg-gray-400"
-            }`}
+            className={`w-3 h-3 rounded-full ${currentIndex === index ? "bg-black" : "bg-gray-400"
+              }`}
           ></button>
         ))}
       </div>

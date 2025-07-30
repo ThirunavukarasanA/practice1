@@ -26,7 +26,7 @@ import ImageCropUpload from "./Applications/Components/ImageCropUpload";
 function App() {
   return (
     <div>
-      {/* <HorizontalSlider /> */}
+      <HorizontalSlider />
       {/* <Login/> */}
       {/* <Menu/><br/><br/> */}
       {/* <Icons/><br/><br/> */}
@@ -46,7 +46,7 @@ function App() {
       {/* <DatePicker /> */}
       {/* <VideoPlayer /> */}
       {/* <HorizontalScroll /> */}
-      <ImageCropUpload />
+      {/* <ImageCropUpload /> */}
       {/* <DeviceDector /> */}
     </div>
   );
